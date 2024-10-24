@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    #4a4947 0%,
+    #4a4947 45%,
+    #d8d2c2 45%,
+    #d8d2c2 100%
+  );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #faf7f0;
+  padding: 3.2rem;
+  width: 35%;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin-bottom: 6.4rem;
+}
+
+.main-container::before {
+  content: "";
+  position: absolute;
+  top: -12rem;
+  width: 150%;
+  height: 24rem;
+  background-color: #b17457;
+  outline-offset: 4px;
+  outline: 1px solid #4a4947;
+  border-radius: 50%;
+}
+
+.user-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+}
+
+.user-avatar {
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  border: 6px solid #faf7f0;
+  margin-bottom: 1.2rem;
+}
+
+.user-greeting {
+  color: #4a4947;
+  margin-bottom: 0.8rem;
+}
+
+.user-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3.2rem;
+}
+
+.static-list,
+.dynamic-list {
+  list-style-type: none;
+}
+
+.static-list {
+  text-align: right;
+}
+
+.dynamic-list {
+  font-weight: bold;
+}
+
+.item {
+  margin-bottom: 1.2rem;
+}
+
+.btn-generate {
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #b17457;
+  padding: 1.6rem 3.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-generate:hover {
+  background-color: #c98e73;
+  transform: scale(1.02);
+  box-shadow: 0 8px 12px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-generate:active {
+  background-color: #d6a28a;
+  transform: scale(1.01);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.error-message {
+  position: relative;
+  z-index: 1;
+}
