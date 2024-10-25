@@ -1,13 +1,6 @@
 const mainContainer = document.querySelector(".main-container");
 const btnGenerate = document.querySelector(".btn-generate");
-btnGenerate.addEventListener("click", async function () {
-  try {
-    const userData = await fetchData();
-    createUserCard(userData);
-  } catch (error) {
-    errorHandler(error);
-  }
-});
+btnGenerate.addEventListener("click", assembleDataCard);
 
 async function fetchData() {
   try {
@@ -81,7 +74,7 @@ function createUserCard(data) {
   const dynamicItemDOB = document.createElement("li");
   dynamicItemDOB.classList.add("item");
   dynamicItemDOB.classList.add("dynamic-item");
-  dynamicItemDOB.textContent = `${data.dob.date}`;
+  dynamicItemDOB.textContent = `${getDateOfBirth(data)}`;
 
   const dynamicItemAge = document.createElement("li");
   dynamicItemAge.classList.add("item");
@@ -135,3 +128,22 @@ function clearContainer() {
     mainContainer.removeChild(mainContainer.firstChild);
   }
 }
+
+function getDateOfBirth(data) {
+  const fullDate = new Date(data.dob.date);
+  const year = fullDate.getFullYear();
+  const month = fullDate.getMonth();
+  const date = fullDate.getDate();
+  return `${date} / ${month} / ${year}`;
+}
+
+async function assembleDataCard() {
+  try {
+    const userData = await fetchData();
+    createUserCard(userData);
+  } catch (error) {
+    errorHandler(error);
+  }
+}
+
+assembleDataCard();
